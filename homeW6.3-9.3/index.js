@@ -251,7 +251,67 @@ Student.prototype.eventBlurNewEstimate = function(event){
     let index = tr.getAttribute("data-index");
 
     td.innerHTML = this.students[index].estimate;
-}
+};
+
+Student.prototype.eventChangeEmail = function(event){
+    var self = this;
+    let td = event.target;
+    tr = td.closest("tr");
+    let index = parseInt(tr.getAttribute("data-index"));
+
+    td.innerHTML = "";
+    let input = document.createElement("INPUT");
+    input.type = "text";
+    input.addEventListener("keyup", this.eventNewEmail.bind(this));
+    this.eventBlur = this.eventBlurNewEmail.bind(this);
+    input.addEventListener("blur", this.eventBlur);
+
+    td.appendChild(input);
+    input.focus();
+};
+
+Student.prototype.eventNewEmail = function(event){
+    event.preventDefault();
+
+    let self = this;
+    if(event.keyCode === 13){
+        event.target.removeEventListener("blur", this.eventBlur);
+        let email = event.target.value;
+
+        let tr = event.target.closest("tr");
+        let index = tr.getAttribute("data-index");
+
+        let student = {
+            id: self.students[index].id,
+            first_name: self.students[index].first_name,
+            course: self.students[index].course,
+            estimate: self.students[index].estimate,
+            is_active: self.students[index].is_active,
+            email: email,
+        };
+        self.sendAjax({
+            url: "https://evgeniychvertkov.com/api/student/",
+            method: "PUT",
+            body: student,
+            success: function(response){
+                if(response.is_success){
+                    event.target.closest("td").innerHTML = email;
+                    self.students[index].email = email;
+                }
+            }
+        });
+    }
+};
+
+Student.prototype.eventBlurNewEmail = function(event){
+    event.preventDefault();
+
+    let tr = event.target.closest("tr");
+    let td = event.target.closest("td");
+    let index = tr.getAttribute("data-index");
+
+    td.innerHTML = this.students[index].email;
+};
 
 Student.prototype.render = function(){
     this.table.innerHTML = "";
@@ -292,6 +352,7 @@ Student.prototype.render = function(){
 
         let tdEmail = document.createElement("TD");
         tdEmail.innerHTML = this.students[i].email;
+        tdEmail.addEventListener("click", this.eventChangeEmail.bind(this));
         tr.appendChild(tdEmail);
 
         let tdActive = document.createElement("TD");
