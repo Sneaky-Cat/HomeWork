@@ -46,7 +46,7 @@ let MatrixTranspose = function(array, totallength){
       }
       console.log(number);
     }
-    MatrixSum([[8,8,8],[7,9,9],[33,2,3]], 3);
+    MatrixStr([[8,8,8],[7,9,9],[33,2,3]], 3);
   
     let MatrixStolbec = function(array, totallength){
       let number
@@ -63,4 +63,4 @@ let MatrixTranspose = function(array, totallength){
       }
       console.log(number);
     }
-    MatrixSum([[8,3,8],[7,9,9],[3,2,7]], 3);
+    MatrixStolbec([[8,3,8],[7,9,9],[3,2,7]], 3);
