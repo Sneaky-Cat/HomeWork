@@ -33,9 +33,9 @@ let MatrixTranspose = function(array, totallength){
   //3.5 Найти номер столбца двумерного массива сумма которого является максимальной (аналогично для строки)
   let MatrixStr = function(array, totallength){
       let number;
-      let res = 0
+      let res = 0;
       for (let b = 0; b<totallength; b++){
-        let sum = 0
+        let sum = 0;
           for (let j = 0; j<totallength; j++){
             sum += array[b][j];
             if (res < sum){
@@ -50,9 +50,9 @@ let MatrixTranspose = function(array, totallength){
   
     let MatrixStolbec = function(array, totallength){
       let number;
-      let res = 0
+      let res = 0;
       for (let b = 0; b<totallength; b++){
-        let sum = 0
+        let sum = 0;
           for (let j = 0; j<totallength; j++){
             sum += array[j][b];
             if (res < sum){
