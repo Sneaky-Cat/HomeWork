@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>new title</title>
+
+    <script src="index.js" async></script>
+    
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <div class="students">
+        <form action="" method="GET" onsubmit="return false;">
+            <input type="text" id = "1" name="firstname" value="" placeholder="name" /> 
+            <input type="number" id = "2"name="course" value="" /> 
+            <input type="number" id = "3" name="estimate" value="" />
+            <input type="text" id = "4" name ="email" value="" placeholder="email"/>
+            <input type="checkbox" id="is_active" name="is_active" value="" />
+            <label for="is_active">Активность</label>
+            <input type="submit" name="send" value="Send" />
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Курс</th>
+                    <th>Оценка</th>
+                    <th>Email</th>
+                    <th>Активность</th>
+                    <th>Действие</th>
+                    <th>Не актив. на курс</th>
+                    <th>Ср. оценка на курс.<br><div id = "avgEstimate"></div></th>
+                    <th><br>Всего не актив.<br><div id = "totalNAStudents"></div></th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
