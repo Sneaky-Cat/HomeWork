@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
     password: "12345678"
 });
 
-connection.query("CREATE DATABASE testDB",
+connection.query("CREATE DATABASE userid2",
 function(err, results) {
     if(err) console.log(err);
     else console.log ("DataBase ------ Created");
